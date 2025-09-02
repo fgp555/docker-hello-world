@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: my_container # container name
+    build: .
+    image: my_image # custom image name
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./my_app:/app
+      - /app/node_modules
+    environment:
+      - PORT=3000
+    networks:
+      - my_app_network # connect to a specific network
+    command: npx nodemon -L server.js   # <-- aquí pones el comando para reemplazar CMD
+
+networks:
+  my_app_network:
+    name: my_network
+
+
+# -L “legacy watch”

@@ -1,0 +1,18 @@
+@token=123
+
+### GET
+GET http://localhost:3000
+
+### POST
+POST http://localhost:3000
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    // .env file
+    "token": "{{token}}",
+    "dotenv_TOKEN": "{{$dotenv TOKEN}}",
+    // System Variables
+    "USERNAME": "{{$processEnv USERNAME}}",
+    "processEnv_TOKEN": "{{$processEnv TOKEN}}"
+}

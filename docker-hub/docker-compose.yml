@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: my_container
+    image: fgp555/hello_world:1.0   # 👈 Imagen desde Docker Hub
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    networks:
+      - my_app_network
+
+networks:
+  my_app_network:
+    name: my_app_network
